@@ -72,6 +72,9 @@ p, li { white-space: pre-wrap; }
     <property name="editable">
      <bool>true</bool>
     </property>
+    <property name="maxVisibleItems">
+     <number>7</number>
+    </property>
    </widget>
    <widget class="QCommandLinkButton" name="commandLinkButton_scylla">
     <property name="geometry">
@@ -195,6 +198,9 @@ p, li { white-space: pre-wrap; }
     <property name="editable">
      <bool>true</bool>
     </property>
+    <property name="maxVisibleItems">
+     <number>7</number>
+    </property>
    </widget>
    <widget class="QComboBox" name="comboBox_dotfile">
     <property name="geometry">
@@ -210,6 +216,9 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="editable">
      <bool>true</bool>
+    </property>
+    <property name="maxVisibleItems">
+     <number>7</number>
     </property>
    </widget>
    <widget class="QCommandLinkButton" name="commandLinkButton_cfg">
@@ -313,7 +322,7 @@ p, li { white-space: pre-wrap; }
       <x>20</x>
       <y>340</y>
       <width>611</width>
-      <height>151</height>
+      <height>277</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">

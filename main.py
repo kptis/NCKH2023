@@ -20,10 +20,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # self.asm_file_list = []
         # self.dot_file_list = []
         # adding list of items to combo box 
-        self.comboBox_originfile.addItems(self.origin_file_list) 
         
         self.FileDialog= QtWidgets.QFileDialog(self.centralwidget)
         self.pushButton_originfile.clicked.connect(self.event_pushbtn_originFile_handler)
+        self.pushButton_asmfile.clicked.connect(self.event_pushbtn_asmFile_handler)
+        self.pushButton_dotfile.clicked.connect(self.event_pushbtn_dotFile_handler)
         
     def open_file_dialog(self):
         dialog = self.FileDialog
@@ -42,28 +43,43 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             return filelist
         
     def event_pushbtn_originFile_handler(self):
-        self.origin_file_list = self.open_file_dialog()
-        item = self.origin_file_list[0]
+        filelist= self.open_file_dialog()
+        self.origin_file_list.append([str(filename) for filename in filelist])
+        # self.comboBox_originfile.clear()
+        item = filelist[0]
         print(item)
-        # show original file name onto editable box
-        # combobox.setEditText(str(Path(originfilelist[0])))
-        # setItemText for combobox => later 
-        
         # setting current item 
-        self.comboBox_originfile.setCurrentText(item) 
-        
+        self.comboBox_originfile.setCurrentText(item)
+
+        # self.comboBox_originfile.setDuplicatesEnabled(False) 
+        self.comboBox_originfile.insertItems(0,self.origin_file_list[::-1][0])
+        # bug duplicate values added to the combobox
         
     def event_pushbtn_asmFile_handler(self):
-        asmfilelist = self.open_file_dialog
-        # show original file name onto editable box
-        # combobox.setEditText(str(Path(originfilelist[0])))
-        # setItemText for combobox => later 
+        filelist= self.open_file_dialog()
+        self.asm_file_list.append([str(filename) for filename in filelist])
+        # self.comboBox_originfile.clear()
+        item = filelist[0]
+        print(item)
+        # setting current item 
+        self.comboBox_asmfile.setCurrentText(item)
+
+        # self.comboBox_originfile.setDuplicatesEnabled(False) 
+        self.comboBox_asmfile.insertItems(0,self.asm_file_list[::-1][0])
+        # bug duplicate values added to the combobox
         
     def event_pushbtn_dotFile_handler(self):
-        dotfilelist = self.open_file_dialog
-        # show original file name onto editable box
-        # combobox.setEditText(str(Path(originfilelist[0])))
-        # setItemText for combobox => later 
+        filelist= self.open_file_dialog()
+        self.dot_file_list.append([str(filename) for filename in filelist])
+        # self.comboBox_originfile.clear()
+        item = filelist[0]
+        print(item)
+        # setting current item 
+        self.comboBox_dotfile.setCurrentText(item)
+
+        # self.comboBox_originfile.setDuplicatesEnabled(False) 
+        self.comboBox_dotfile.insertItems(0,self.dot_file_list[::-1][0])
+        # bug duplicate values added to the combobox
 
         
 def ShowWindow():
